@@ -28,7 +28,7 @@ DICT_CHAMP = {
     '亚索': 'Yasuo',
     '弗拉基米尔': 'Vladimir',
     '卡萨丁': 'Kassadin',
-    '维克兹': 'VelKoz',
+    '维克兹': 'Velkoz',
     '菲兹': 'Fizz',
     '加里奥': 'Galio',
     '奥瑞利安·索尔': 'Aurelion Sol',
@@ -85,7 +85,7 @@ DICT_CHAMP = {
     '德莱文': 'Draven',
     '莎弥拉': 'Samira',
     '伊泽瑞尔': 'Ezreal',
-    '卡莎': 'KaiSa',
+    '卡莎': 'Kaisa',
     '图奇': 'Twitch',
     '卡莉丝塔': 'Kalista',
     '巴德': 'Bardo',
@@ -124,7 +124,7 @@ DICT_CHAMP = {
     '格雷福斯': 'Graves',
     '魔腾': 'Nocturne',
     '凯隐': 'Kayn',
-    '卡兹克': 'KhaZix',
+    '卡兹克': 'Khazix',
     '佛耶戈': 'Viego',
     '雷恩加尔': 'Rengar',
     '易': 'Maestro Yi',
@@ -175,25 +175,28 @@ def main():
         champ_profile['name'] = DICT_CHAMP[item['name']]
         champ_profile['roles'] = DICT_ROLES[item['roles'][0]]
         champ_profile['lane'] = translate_lanes(item['lane'].split(';'))
-        champ_profile['damage'] = item['damage']
-        champ_profile['surviveL'] = item['surviveL']
-        champ_profile['assistL'] = item['assistL']
-        champ_profile['difficultyL'] = item['difficultyL']
-        champ_profile['life'] = ""
-        champ_profile['life_reg'] = ""
-        champ_profile['mana'] = ""
-        champ_profile['mana_reg'] = ""
-        champ_profile['attack_damange'] = ""
-        champ_profile['attack_speed'] = ""
-        champ_profile['armor'] = ""
-        champ_profile['magic_res'] = ""
-        champ_profile['movement'] = ""
+        champ_profile['damage'] = int(item['damage'])
+        champ_profile['survive'] = int(item['surviveL'])
+        champ_profile['assist'] = int(item['assistL'])
+        champ_profile['difficulty'] = int(item['difficultyL'])
+        champ_profile['life'] = 0
+        champ_profile['life_reg'] = 0
+        champ_profile['mana'] = 0
+        champ_profile['mana_reg'] = 0
+        champ_profile['attack_damange'] = 0
+        champ_profile['attack_speed'] = 0
+        champ_profile['armor'] = 0
+        champ_profile['magic_res'] = 0
+        champ_profile['movement'] = 0
 
-        list_data[champ_profile['name']] = champ_profile
+        list_data[champ_profile['name'].replace(' ', '-')] = champ_profile
+    
+    heroes_ordenados = dict(sorted(list_data.items(), key=lambda x: x[0].lower()))
+        
 
     # Guardamos el JSON con formato bonito .txt
     with open("data_name_hero.json", "w", encoding="utf-8") as f:
-        f.write(json.dumps(list_data, ensure_ascii=False, indent=2))
+        f.write(json.dumps(heroes_ordenados, ensure_ascii=False, indent=2))
 
     print("Datos guardados en data_hero.txt")
 
