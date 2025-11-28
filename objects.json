@@ -47,7 +47,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 10
   },
-  "Alternador_Hextech": {
+  "Alternador-Hextech": {
     "name": "Alternador Hextech",
     "type": "Daño Mágico",
     "description": "Las habilidades de daño y los ataques potenciados contra compeones inflingen de 25 a 60 de daño mágico adicional (20 s de ebfriamiento)." ,
@@ -71,7 +71,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-  "Anillo_De_La_Revelacion": {
+  "Anillo-De-La-Revelacion": {
     "name": "Anillo de la Revelación",
     "type": "Daño Mágico",
     "description": "" ,
@@ -95,7 +95,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 10
   },
-  "Arco_Curvo": {
+  "Arco-Curvo": {
     "name": "Arco Curvo",
     "type": "Velocidad de Ataque",
     "description": "Refuerzo: Los ataques inflingen 15 de daño físico adicional al impactar contra objetivos" ,
@@ -119,7 +119,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-  "Armadura_De_Warmog": {
+  "Armadura-De-Warmog": {
     "name": "Armadura de Warmog",
     "type": "Defensa",
     "description": "Corazón de Warmog: Si tienes al menos 950 de vida adicional, restaura un 4.5% de vida por segundo, en caso de no haber recibido daño en los ultimos 5 s." ,
@@ -143,7 +143,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 10
   },
-  "Armadura_De_Tela": {
+  "Armadura-De-Tela": {
     "name": "Armadura de Tela",
     "type": "Defensa",
     "description": "" ,
@@ -167,7 +167,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-  "Armadura_Lunar_Alada": {
+  "Armadura-Lunar-Alada": {
     "name": "Armadura Lunar Alada",
     "type": "Defensa",
     "description": "" ,
@@ -191,7 +191,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-    "Bacteriofago": {
+  "Bacteriofago": {
     "name": "Bacteriófago",
     "type": "Daño Fisico",
     "description": "Furia: Los ataques otorgan 20 de velocidad de movimiento y los asesinatos otorgan 60 de velocidad de movimiento durante 2 s. Las mejoras no se acumulan. Los campeones a distancia obtienen la mitad de dichos valores." ,
@@ -215,7 +215,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-      "Bailarin_Espectral": {
+  "Bailarin-Espectral": {
     "name": "Bailarín Espectral",
     "type": "Daño Fisico",
     "description": "Fervor: +5% de velocidad de movimiento. \n Vals Espectral: Otorga un 25% de velocidad de movimiento y un 7% de velocidad de movimiento durante 3 s cuando golpeas a un campeon con un ataque. Mientras las bonificaciones estan activas, asestar un impacto critico aumenta su duración en 1 s. Las mejoras no se acumulan (20 s de enfriamiento, que se reduce en 1 s por ataque)" ,
@@ -239,7 +239,7 @@
     "magic_penetration" : 0,
     "ability_haste" : 0
   },
-      "Baile_De_La_Muerte": {
+  "Baile-De-La-Muerte": {
     "name": "Baile de la Muerte",
     "type": "Daño Fisico",
     "description": "Baile: Las eliminaciones de campeones eliminan la reserva de daño restante de Cauterizar y restauran un 10% de tu vida máxima a lo largo de 2 s. \n Cauterizar: Un 30% de todo el daño físico y daño mágico recibidos (12% si se trata de un campeón a distancia) se inflinge a lo largo de 4 s como daño verdadero." ,
