@@ -928,9 +928,9 @@
     "magic_res": 30,
     "movement": 335
   },
-  "Kaisa": {
+  "Kai'Sa": {
     "heroId": "10026",
-    "name": "Kaisa",
+    "name": "Kai'Sa",
     "roles": "Tirador",
     "lane": [
       "Dragonlane"
@@ -1100,9 +1100,9 @@
     "magic_res": 36,
     "movement": 355
   },
-  "Khazix": {
+  "Kha'Zix": {
     "heroId": "10017",
-    "name": "Khazix",
+    "name": "Kha'Zix",
     "roles": "Asesino",
     "lane": [
       "Jungler"
@@ -2408,9 +2408,9 @@
     "magic_res": 36,
     "movement": 360
   },
-  "Velkoz": {
+  "Vel'Koz": {
     "heroId": "10129",
-    "name": "Velkoz",
+    "name": "Vel'Koz",
     "roles": "Mago",
     "lane": [
       "Midlane",
