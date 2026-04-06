@@ -135,7 +135,11 @@ DICT_CHAMP = {
     '佐伊': 'Zoe',
     '尼菈': 'Nilah',
     '阿克尚': 'Akshan',
-    '泰隆': 'Talon'
+    '泰隆': 'Talon',
+    '克格莫': 'Kogmaw',
+    '斯莫德': 'Smolder',
+    '梅尔': 'Mel',
+    '诺拉': 'Norra'
 }
 
 DICT_ROLES = {
@@ -188,6 +192,7 @@ def main():
         champ_profile['armor'] = 0
         champ_profile['magic_res'] = 0
         champ_profile['movement'] = 0
+        
 
         list_data[champ_profile['name'].replace(' ', '-')] = champ_profile
     
@@ -195,10 +200,10 @@ def main():
         
 
     # Guardamos el JSON con formato bonito .txt
-    with open("data_name_hero.json", "w", encoding="utf-8") as f:
+    with open("data_name_hero_new.json", "w", encoding="utf-8") as f:
         f.write(json.dumps(heroes_ordenados, ensure_ascii=False, indent=2))
 
-    print("Datos guardados en data_hero.txt")
+    print("Datos guardados en data_hero_new.txt")
 
 if __name__ == "__main__":
     main()

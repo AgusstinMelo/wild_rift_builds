@@ -1,74 +1,114 @@
 class Objeto:
     def __init__(self, object: dict):
-        self._name = object['name']
-        self._life = object['life']
-        self._life_reg = object['life_reg']
+        self._nombre = object['name']
+        self._descripcion = object['description']
+        self._vida = object['life']
+        self._regeneracion_de_vida = object['life_reg']
         self._mana = object['mana']
-        self._mana_reg = object['mana_reg']
-        self._attack_damange = object['attack_damange']
-        self._attack_speed = object['attack_speed']
-        self._armor = object['armor']
-        self._magic_res = object['magic_res']
-        self._movement = object['movement']
-        self._ability_power = object['ability_power']
-        self._critical_impact = object['critical_impact']
-        self._life_steal = object['life_steal']
-        self._omnivamp = object['omnivamp']
-        self._flat_armor_penetration = object['flat_armor_penetration']
-        self._percentage_armor_penetration = object['percentage_armor_penetration']
-        self._magic_penetration = object['magic_penetration']
-        self._ability_haste = object['ability_haste']
-        
+        self._regeneracion_de_mana = object['mana_reg']
+        self._daño_de_ataque = object['attack_damange']
+        self._velocidad_de_ataque = object['attack_speed']
+        self._armadura = object['armor']
+        self._resistencia_magica = object['magic_res']
+        self._movimiento_plano = object['flat_movement']
+        self._movimiento_porcentual = object['percentage_movement']
+        self._poder_de_habilidad = object['ability_power']
+        self._impacto_critico = object['critical_impact']
+        self._daño_critico = object['critical_damange']
+        self._vampirismo_fisico = object['physic_vamp']
+        self._vampirismo_magico = object['magic_vamp']
+        self._penetracion_de_armadura_plana = object['flat_armor_penetration']
+        self._penetracion_de_armadura_porcentual = object['percentage_armor_penetration']
+        self._penetracion_magica = object['flat_magic_penetration']
+        self._penetracion_magica_porcentual = object['percentage_magic_penetration']
+        self._velocidad_de_habilidades = object['ability_haste']
+        self._tenacidad = object['tenacity']
+        self._curacion_y_escudo = object['healing-and-shield']
+        self._daño_adaptable_ad = object.get('adaptable_ad', 0)
+        self._daño_adaptable_ap = object.get('adaptable_ap', 0)
+
     def get_nombre(self):
-        return self._name
-        
-    def get_life(self):
-        return self._life
-        
-    def get_life_reg(self):
-        return self._life_reg
-    
+        return self._nombre
+
+    def get_descripcion(self):
+        return self._descripcion
+
+    def get_vida(self):
+        return self._vida
+
+    def get_regeneracion_de_vida(self):
+        return self._regeneracion_de_vida
+
     def get_mana(self):
         return self._mana
-    
-    def get_mana_reg(self):
-        return self._mana_reg
-    
-    def get_attack_damange(self):
-        return self._attack_damange
-    
-    def get_attack_speed(self):
-        return self._attack_speed
-    
-    def get_armor(self):
-        return self._armor
-    
-    def get_magic_res(self):
-        return self._magic_res
-    
-    def get_movement(self):
-        return self._movement
-    
-    def get_ability_power(self):
-        return self._ability_power
-    
-    def get_critical_impact(self):
-        return self._critical_impact
-    
-    def get_life_steal(self):
-        return self._life_steal
-    
-    def get_omnivamp(self):
-        return self._omnivamp
-    
-    def get_flat_armor_penetration(self):
-        return self._flat_armor_penetration
-    
-    def get_percentage_armor_penetration(self):
-        return self._percentage_armor_penetration
-    
-    def get_magic_penetration(self):
-        return self._magic_penetration
-    
-    def get_ability_haste(self):
-        return self._ability_haste
+
+    def get_regeneracion_de_mana(self):
+        return self._regeneracion_de_mana
+
+    def get_daño_de_ataque(self):
+        return self._daño_de_ataque
+
+    def get_velocidad_de_ataque(self):
+        return self._velocidad_de_ataque
+
+    def get_armadura(self):
+        return self._armadura
+
+    def get_resistencia_magica(self):
+        return self._resistencia_magica
+
+    def get_movimiento_plano(self):
+        return self._movimiento_plano
+
+    def get_movimiento_porcentual(self):
+        return self._movimiento_porcentual
+
+    def get_poder_de_habilidad(self):
+        return self._poder_de_habilidad
+
+    def get_impacto_critico(self):
+        return self._impacto_critico
+
+    def get_daño_critico(self):
+        return self._daño_critico
+
+    def get_vampirismo_fisico(self):
+        return self._vampirismo_fisico
+
+    def get_vampirismo_magico(self):
+        return self._vampirismo_magico
+
+    def get_penetracion_de_armadura_plana(self):
+        return self._penetracion_de_armadura_plana
+
+    def get_penetracion_de_armadura_porcentual(self):
+        return self._penetracion_de_armadura_porcentual
+
+    def get_penetracion_magica(self):
+        return self._penetracion_magica
+
+    def get_penetracion_magica_porcentual(self):
+        return self._penetracion_magica_porcentual
+
+    def get_velocidad_de_habilidades(self):
+        return self._velocidad_de_habilidades
+
+    def get_tenacidad(self):
+        return self._tenacidad
+
+    def get_curacion_y_escudo(self):
+        return self._curacion_y_escudo
+
+    def get_daño_adaptable_ad(self):
+        return self._daño_adaptable_ad
+
+    def get_daño_adaptable_ap(self):
+        return self._daño_adaptable_ap
+
+    def tiene_daño_adaptable(self):
+        return self._daño_adaptable_ad > 0 or self._daño_adaptable_ap > 0
+
+    def print_stats(self):
+        for atributo, valor in self.__dict__.items():
+            if isinstance(valor, (int, float)) and valor != 0:
+                print(f"{atributo.title().replace('_', ' ')} : {valor}")
