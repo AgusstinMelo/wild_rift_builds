@@ -139,7 +139,9 @@ DICT_CHAMP = {
     '克格莫': 'Kogmaw',
     '斯莫德': 'Smolder',
     '梅尔': 'Mel',
-    '诺拉': 'Norra'
+    '诺拉': 'Norra',
+    '塔莉垭': 'Taliyah',
+    '奎桑提': 'Ksante'
 }
 
 DICT_ROLES = {

@@ -33,6 +33,7 @@ class Campeon:
         }
 
         self._build = []
+        self._runas = []
         self._restore_base_stats()
 
     def _restore_base_stats(self):
@@ -252,29 +253,29 @@ class Campeon:
     def set_curacion_y_escudo(self, healing_and_shield):
         self._curacion_y_escudo += healing_and_shield
 
-    def _aplicar_objeto_fijo(self, obj: Objeto):
-        self.set_vida(obj.get_vida())
-        self.set_regeneracion_de_vida(obj.get_regeneracion_de_vida())
-        self.set_mana(obj.get_mana())
-        self.set_regeneracion_de_mana(obj.get_regeneracion_de_mana())
-        self.set_daño_de_ataque(obj.get_daño_de_ataque())
-        self.set_porcentaje_velocidad_de_ataque(obj.get_velocidad_de_ataque())
-        self.set_armadura(obj.get_armadura())
-        self.set_resistencia_magica(obj.get_resistencia_magica())
-        self.set_movimiento_plano(obj.get_movimiento_plano())
-        self.set_movimiento_porcentual(obj.get_movimiento_porcentual())
-        self.set_poder_de_habilidad(obj.get_poder_de_habilidad())
-        self.set_impacto_critico(obj.get_impacto_critico())
-        self.set_daño_critico(obj.get_daño_critico())
-        self.set_vampirismo_fisico(obj.get_vampirismo_fisico())
-        self.set_vampirismo_magico(obj.get_vampirismo_magico())
-        self.set_penetracion_de_armadura_plana(obj.get_penetracion_de_armadura_plana())
-        self.set_penetracion_de_armadura_porcentual(obj.get_penetracion_de_armadura_porcentual())
-        self.set_penetracion_magica(obj.get_penetracion_magica())
-        self.set_penetracion_magica_porcentual(obj.get_penetracion_magica_porcentual())
-        self.set_velocidad_de_habilidades(obj.get_velocidad_de_habilidades())
-        self.set_tenacidad(obj.get_tenacidad())
-        self.set_curacion_y_escudo(obj.get_curacion_y_escudo())
+    def _aplicar_fuente_de_stats(self, fuente):
+        self.set_vida(fuente.get_vida())
+        self.set_regeneracion_de_vida(fuente.get_regeneracion_de_vida())
+        self.set_mana(fuente.get_mana())
+        self.set_regeneracion_de_mana(fuente.get_regeneracion_de_mana())
+        self.set_daño_de_ataque(fuente.get_daño_de_ataque())
+        self.set_porcentaje_velocidad_de_ataque(fuente.get_velocidad_de_ataque())
+        self.set_armadura(fuente.get_armadura())
+        self.set_resistencia_magica(fuente.get_resistencia_magica())
+        self.set_movimiento_plano(fuente.get_movimiento_plano())
+        self.set_movimiento_porcentual(fuente.get_movimiento_porcentual())
+        self.set_poder_de_habilidad(fuente.get_poder_de_habilidad())
+        self.set_impacto_critico(fuente.get_impacto_critico())
+        self.set_daño_critico(fuente.get_daño_critico())
+        self.set_vampirismo_fisico(fuente.get_vampirismo_fisico())
+        self.set_vampirismo_magico(fuente.get_vampirismo_magico())
+        self.set_penetracion_de_armadura_plana(fuente.get_penetracion_de_armadura_plana())
+        self.set_penetracion_de_armadura_porcentual(fuente.get_penetracion_de_armadura_porcentual())
+        self.set_penetracion_magica(fuente.get_penetracion_magica())
+        self.set_penetracion_magica_porcentual(fuente.get_penetracion_magica_porcentual())
+        self.set_velocidad_de_habilidades(fuente.get_velocidad_de_habilidades())
+        self.set_tenacidad(fuente.get_tenacidad())
+        self.set_curacion_y_escudo(fuente.get_curacion_y_escudo())
 
     def _modo_adaptable(self):
         if self._poder_de_habilidad > self._daño_de_ataque - self._base_stats['daño_de_ataque']:
@@ -298,12 +299,16 @@ class Campeon:
 
         for _ in range(max_iteraciones):
             self._restore_base_stats()
+            
+            # Primero runas
+            for runa in self._runas:
+                self._aplicar_fuente_de_stats(runa)
 
             for obj in objetos_normales:
-                self._aplicar_objeto_fijo(obj)
+                self._aplicar_fuente_de_stats(obj)
 
             for obj in objetos_adaptables:
-                self._aplicar_objeto_fijo(obj)
+                self._aplicar_fuente_de_stats(obj)
 
             if self._modo_adaptable() == "AD":
                 for obj in objetos_adaptables:
@@ -320,6 +325,8 @@ class Campeon:
 
             ad_final = self._daño_de_ataque
             ap_final = self._poder_de_habilidad
+
+        #Interacciones de Objetos Especiales
 
         for obj in objetos_normales:
             if obj.get_nombre() == 'Filo del Infinito' and self._impacto_critico > 100:
@@ -371,6 +378,10 @@ class Campeon:
 
     def add_object(self, obj: Objeto):
         self._build.append(obj)
+        self.recalcular_stats()
+        
+    def add_rune(self, rune):
+        self._runas.append(rune)
         self.recalcular_stats()
 
     def use_object(self, obj: Objeto):
